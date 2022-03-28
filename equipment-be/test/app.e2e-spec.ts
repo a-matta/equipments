@@ -3,7 +3,7 @@ import { Test } from '@nestjs/testing';
 import { AppModule } from './../src/app.module';
 import { INestApplication } from '@nestjs/common';
 
-describe('AppController (e2e)', () => {
+describe('EquipmentController (e2e)', () => {
   let app: INestApplication;
 
   beforeAll(async () => {
@@ -15,10 +15,24 @@ describe('AppController (e2e)', () => {
     await app.init();
   });
 
-  it('/ (GET)', () => {
+  it('/equipment/search (GET)', () => {
     return request(app.getHttpServer())
-      .get('/')
+      .get('/equipment/search')
       .expect(200)
-      .expect('Hello World!');
+      .expect('Equipment search results');
+  });
+
+  it('/equipment/:equipmentNumber (GET)', () => {
+    return request(app.getHttpServer())
+      .get('/equipment/1')
+      .expect(200)
+      .expect('Equipment Details');
+  });
+
+  it('/equipment (POST)', () => {
+    return request(app.getHttpServer())
+      .post('/equipment')
+      .expect(201)
+      .expect('Equipment created');
   });
 });
