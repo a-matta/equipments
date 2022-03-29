@@ -1,39 +1,51 @@
 import {
+  BadRequestException,
   Body,
   Controller,
   DefaultValuePipe,
   Get,
+  NotFoundException,
   Param,
   ParseIntPipe,
   Post,
   Query,
 } from '@nestjs/common';
+import { InjectRepository } from '@nestjs/typeorm';
+import { Repository } from 'typeorm';
 import { CreateEquipmentDto } from './create.equipment.dto';
-import { AppService } from './equipment.service';
+import { Equipment } from './equipment.entity';
 
 @Controller('equipment')
 export class EquipmentController {
-  constructor(private readonly appService: AppService) {}
+  constructor(
+    @InjectRepository(Equipment)
+    private readonly equipmentRepository: Repository<Equipment>,
+  ) {}
 
   @Get('search')
   searchEquipments(
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
-  ): string {
-    console.log('limit', limit);
-    return 'Equipment search results';
+  ) {
+    return this.equipmentRepository.find({
+      take: limit,
+    });
   }
 
   @Get(':equipmentNumber')
-  getEquipment(
+  async getEquipment(
     @Param('equipmentNumber', ParseIntPipe) equipmentNumber: number,
-  ): string {
-    console.log('equipmentNumber', equipmentNumber);
-    return 'Equipment Details';
+  ) {
+    const equipment = await this.equipmentRepository.findOne(equipmentNumber);
+    if (!equipment) {
+      throw new NotFoundException(
+        `EquipmentNumber=${equipmentNumber} not found`,
+      );
+    }
+    return equipment;
   }
 
   @Post()
-  createEquipment(@Body() createEquipmentDto: CreateEquipmentDto): string {
-    console.log(createEquipmentDto);
-    return 'Equipment created';
+  createEquipment(@Body() createEquipmentDto: CreateEquipmentDto) {
+    return this.equipmentRepository.save(createEquipmentDto);
   }
 }
