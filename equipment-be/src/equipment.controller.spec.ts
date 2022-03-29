@@ -1,6 +1,6 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { EquipmentController } from './equipment.controller';
-import { AppService } from './app.service';
+import { AppService } from './equipment.service';
 
 describe('EquipmentController', () => {
   let app: TestingModule;

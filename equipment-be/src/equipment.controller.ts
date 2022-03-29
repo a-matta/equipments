@@ -1,4 +1,5 @@
 import {
+  Body,
   Controller,
   DefaultValuePipe,
   Get,
@@ -7,7 +8,8 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
-import { AppService } from './app.service';
+import { CreateEquipmentDto } from './create.equipment.dto';
+import { AppService } from './equipment.service';
 
 @Controller('equipment')
 export class EquipmentController {
@@ -30,7 +32,8 @@ export class EquipmentController {
   }
 
   @Post()
-  createEquipment(): string {
+  createEquipment(@Body() createEquipmentDto: CreateEquipmentDto): string {
+    console.log(createEquipmentDto);
     return 'Equipment created';
   }
 }
