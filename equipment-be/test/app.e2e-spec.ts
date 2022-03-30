@@ -1,3 +1,6 @@
+/* 
+https://stackoverflow.com/questions/66193796/using-test-database-when-e2e-testing-nestjs
+
 import * as request from 'supertest';
 import { Test } from '@nestjs/testing';
 import { AppModule } from './../src/app.module';
@@ -36,3 +39,4 @@ describe('EquipmentController (e2e)', () => {
       .expect('Equipment created');
   });
 });
+*/
