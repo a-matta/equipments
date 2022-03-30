@@ -9,6 +9,7 @@ import {
   Post,
   Query,
 } from '@nestjs/common';
+import { ApiQuery } from '@nestjs/swagger';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { CreateEquipmentDto } from './create.equipment.dto';
@@ -22,6 +23,7 @@ export class EquipmentController {
   ) {}
 
   @Get('search')
+  @ApiQuery({ name: 'limit', required: false })
   searchEquipments(
     @Query('limit', new DefaultValuePipe(10), ParseIntPipe) limit: number,
   ) {
