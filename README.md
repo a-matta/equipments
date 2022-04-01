@@ -13,8 +13,12 @@ Coding languages/frameworks/databases/testing
 
 - NodeJS
 - [NestJS](https://nestjs.com/)
+- [TypeORM](https://typeorm.io/)
+- Swagger
 - [React](https://reactjs.org/)
-- mariadb
+- [React Router](https://reactrouter.com/)
+- [React Bootstrap](https://react-bootstrap.github.io)
+- [MariaDB](https://mariadb.org/)
 
 Dev
 
@@ -49,3 +53,9 @@ Start frontend
 - npm start
 
 ### 3.3. Access the Application
+
+- Frontend http://localhost:3000
+- Backend
+  - http://localhost:4000/api/
+  - Swagger UI http://localhost:4000/swagger/
+  - OpenAPI json http://localhost:4000/swagger-json
