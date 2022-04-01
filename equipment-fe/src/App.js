@@ -5,7 +5,9 @@ import Home from "./components/Home";
 import Create from "./components/Create";
 import { Container } from "react-bootstrap";
 import Equipments from "./components/Equipments";
-import "./App.css";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import EquipmentDetail from "./components/EquipmentDetail";
 
 const App = () => {
   return (
@@ -14,8 +16,13 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/equipments" element={<Equipments />} />
+        <Route
+          path="/equipments/:equipmentNumber"
+          element={<EquipmentDetail />}
+        />
         <Route path="/create" element={<Create />} />
       </Routes>
+      <ToastContainer />
     </Container>
   );
 };

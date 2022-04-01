@@ -1,4 +1,5 @@
 import axios from "axios";
+import moment from "moment";
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
@@ -7,12 +8,7 @@ const Equipments = () => {
 
   useEffect(() => {
     axios.get("/api/equipment/search").then((resp) => {
-      const ArrayList = resp.data;
-      console.log(ArrayList);
-      setResults(ArrayList);
-      ArrayList.map((p) => {
-        console.log(p.address);
-      });
+      setResults(resp.data);
     });
   }, []);
   // TODO -styling,table center
@@ -31,18 +27,18 @@ const Equipments = () => {
         <tbody>
           {results.map((p) => {
             return (
-              <tr>
+              <tr key={p.equipmentNumber}>
                 <td>
                   <Link
-                    to={`/equipment/${p.equipmentNumber}`}
+                    to={`/equipments/${p.equipmentNumber}`}
                     style={{ textDecoration: "none" }}
                   >
                     {p.equipmentNumber}
                   </Link>
                 </td>
                 <td>{p.address}</td>
-                <td>{p.contractStartDate}</td>
-                <td>{p.contractEndDate}</td>
+                <td>{moment(p.contractStartDate).format("DD-MM-YYYY")}</td>
+                <td>{moment(p.contractEndDate).format("DD-MM-YYYY")}</td>
                 <td>{p.status}</td>
               </tr>
             );

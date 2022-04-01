@@ -5,20 +5,14 @@ const Header = () => {
   return (
     <Navbar expand="lg" variant="light" bg="light">
       <Navbar.Collapse>
-        <Nav.Link>
-          <Link to="/" style={{ textDecoration: "none" }}>
-            Home
-          </Link>
+        <Nav.Link as={Link} to="/">
+          Home
         </Nav.Link>
-        <Nav.Link>
-          <Link to="/equipments" style={{ textDecoration: "none" }}>
-            Equipments
-          </Link>
+        <Nav.Link as={Link} to="/equipments">
+          Equipments
         </Nav.Link>
-        <Nav.Link>
-          <Link to="/create" style={{ textDecoration: "none" }}>
-            Create New Equipment
-          </Link>
+        <Nav.Link as={Link} to="/create">
+          Create New Equipment
         </Nav.Link>
       </Navbar.Collapse>
     </Navbar>

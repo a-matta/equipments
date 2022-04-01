@@ -29,6 +29,9 @@ export class EquipmentController {
   ) {
     return this.equipmentRepository.find({
       take: limit,
+      order: {
+        equipmentNumber: 'DESC',
+      },
     });
   }
 
