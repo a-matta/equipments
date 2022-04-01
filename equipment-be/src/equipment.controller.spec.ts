@@ -36,7 +36,10 @@ describe('EquipmentController', () => {
 
   const mockEquipment = {
     equipmentNumber: 1,
-    address: '',
+    streetAddress: 'Aleksis Kiven Katu 20',
+    postcode: '00223',
+    city: 'Helsinki',
+    country: 'Finland',
     contractStartDate: new Date(),
     contractEndDate: new Date(),
     status: EquipmentStatus.Running,
@@ -69,7 +72,10 @@ describe('EquipmentController', () => {
   describe('createEquipment', () => {
     it('should create new equipment', async () => {
       const createEquipmentDto = {
-        address: '11 Vantaa',
+        streetAddress: 'Aleksis Kiven Katu 20',
+        postcode: '00223',
+        city: 'Helsinki',
+        country: 'Finland',
         contractStartDate: new Date(),
         contractEndDate: new Date(),
         status: EquipmentStatus.Stopped,

@@ -24,8 +24,20 @@ const EquipmentDetail = () => {
             <td>{equipmentNumber}</td>
           </tr>
           <tr>
-            <td>Address</td>
-            <td>{data.address}</td>
+            <td>Street Address</td>
+            <td>{data.streetAddress}</td>
+          </tr>
+          <tr>
+            <td>Postcode</td>
+            <td>{data.postcode}</td>
+          </tr>
+          <tr>
+            <td>City</td>
+            <td>{data.city}</td>
+          </tr>
+          <tr>
+            <td>Country</td>
+            <td>{data.country}</td>
           </tr>
           <tr>
             <td>Contract Start Date</td>

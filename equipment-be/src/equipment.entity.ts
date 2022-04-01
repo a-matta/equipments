@@ -6,7 +6,16 @@ export class Equipment {
   equipmentNumber: number;
 
   @Column()
-  address: string;
+  streetAddress: string;
+
+  @Column()
+  postcode: string;
+
+  @Column()
+  city: string;
+
+  @Column()
+  country: string;
 
   @Column()
   contractStartDate: Date;

@@ -7,7 +7,22 @@ export class CreateEquipmentDto {
   @IsNotEmpty()
   @IsString()
   @ApiProperty()
-  address: string;
+  streetAddress: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @ApiProperty()
+  postcode: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @ApiProperty()
+  city: string;
+
+  @IsNotEmpty()
+  @IsString()
+  @ApiProperty()
+  country: string;
 
   @Type(() => Date)
   @IsDate()

@@ -10,7 +10,7 @@ const Home = () => {
         textAlign: "center",
       }}
     >
-      This is a an application to manage a equipments.
+      This is an application to manage equipments.
     </div>
   );
 };

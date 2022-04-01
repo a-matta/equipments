@@ -5,7 +5,10 @@ import { useNavigate } from "react-router-dom";
 import { Button, Col, Form, Row } from "react-bootstrap";
 
 const Create = () => {
-  const [address, setAddress] = useState("");
+  const [streetAddress, setStreetAddress] = useState("");
+  const [postcode, setPostcode] = useState("");
+  const [city, setCity] = useState("");
+  const [country, setCountry] = useState("");
   const [contractStartDate, setContractStartDate] = useState("");
   const [contractEndDate, setContractEndDate] = useState("");
   const [status, setStatus] = useState("Running");
@@ -14,11 +17,13 @@ const Create = () => {
 
   const handlerSubmit = (e) => {
     e.preventDefault();
-    console.log(address, contractEndDate, contractStartDate, status);
     setBtnDisabled(true);
     axios
       .post("/api/equipment", {
-        address,
+        streetAddress,
+        postcode,
+        city,
+        country,
         contractStartDate,
         contractEndDate,
         status,
@@ -45,14 +50,56 @@ const Create = () => {
       <Form className="mb-3 border border-dark p-5" onSubmit={handlerSubmit}>
         <Form.Group as={Row} className="mb-3">
           <Form.Label htmlFor="name" column sm="3">
-            Address
+            Street Address
           </Form.Label>
           <Col sm="9">
             <Form.Control
               type="text"
-              name="address"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              name="streetAddress"
+              value={streetAddress}
+              onChange={(e) => setStreetAddress(e.target.value)}
+              required
+            />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3">
+          <Form.Label htmlFor="name" column sm="3">
+            Postcode
+          </Form.Label>
+          <Col sm="9">
+            <Form.Control
+              type="text"
+              name="postcode"
+              value={postcode}
+              onChange={(e) => setPostcode(e.target.value)}
+              required
+            />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3">
+          <Form.Label htmlFor="name" column sm="3">
+            City
+          </Form.Label>
+          <Col sm="9">
+            <Form.Control
+              type="text"
+              name="city"
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
+              required
+            />
+          </Col>
+        </Form.Group>
+        <Form.Group as={Row} className="mb-3">
+          <Form.Label htmlFor="name" column sm="3">
+            Country
+          </Form.Label>
+          <Col sm="9">
+            <Form.Control
+              type="text"
+              name="country"
+              value={country}
+              onChange={(e) => setCountry(e.target.value)}
               required
             />
           </Col>
