@@ -1,6 +1,7 @@
 import axios from "axios";
 import moment from "moment";
 import React, { useEffect, useState } from "react";
+import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const Equipments = () => {
@@ -13,8 +14,8 @@ const Equipments = () => {
   }, []);
   // TODO -styling,table center
   return (
-    <div>
-      <table>
+    <div style={{ marginLeft: "10%", marginRight: "10%", marginTop: "15px" }}>
+      <Table striped bordered hover size="sm">
         <thead>
           <tr>
             <th>Equipment Number</th>
@@ -44,7 +45,7 @@ const Equipments = () => {
             );
           })}
         </tbody>
-      </table>
+      </Table>
     </div>
   );
 };

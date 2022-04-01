@@ -1,15 +1,17 @@
 import React from "react";
-import { Container } from "react-bootstrap";
-import { Link } from "react-router-dom";
 
 const Home = () => {
   return (
-    <Container>
-      TODO This is work done by amrita. to see equipments click
-      <Link to="/equipments" style={{ textDecoration: "none" }}>
-        here
-      </Link>
-    </Container>
+    <div
+      style={{
+        marginLeft: "10%",
+        marginRight: "10%",
+        marginTop: "15px",
+        textAlign: "center",
+      }}
+    >
+      This is a an application to manage a equipments.
+    </div>
   );
 };
 
