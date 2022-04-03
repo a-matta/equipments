@@ -22,17 +22,7 @@ const App = () => {
         />
         <Route path="/create" element={<Create />} />
       </Routes>
-      <ToastContainer
-        position="top-center"
-        autoClose={5000}
-        hideProgressBar={false}
-        newestOnTop={false}
-        closeOnClick
-        rtl={false}
-        pauseOnFocusLoss
-        draggable
-        pauseOnHover
-      />
+      <ToastContainer position="bottom-right" autoClose={2000} />
     </Container>
   );
 };

@@ -29,17 +29,11 @@ const Create = () => {
         status,
       })
       .then((resp) => {
-        toast.success(`Equipment # ${resp.data.equipmentNumber} created`, {
-          position: "bottom-right",
-          autoClose: 2000,
-        });
+        toast.success(`Equipment # ${resp.data.equipmentNumber} created`);
         navigate("/equipments", { replace: true });
       })
       .catch((e) => {
-        toast.error(`Error creating new equipment`, {
-          position: "bottom-right",
-          autoClose: 2000,
-        });
+        toast.error(`Error creating new equipment`);
         console.log(e);
         setBtnDisabled(false);
       });
