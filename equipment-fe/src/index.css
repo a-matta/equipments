@@ -1,0 +1,14 @@
+.main-container {
+  margin: 15px 10% 0 10%;
+  text-align: center;
+}
+
+.equipment-detail-container {
+  margin: 15px 20% 0 20%;
+  text-align: center;
+}
+
+.center {
+  margin: auto;
+  width: 0;
+}

@@ -40,7 +40,7 @@ const Create = () => {
   };
 
   return (
-    <div style={{ marginLeft: "20%", marginRight: "20%", marginTop: "15px" }}>
+    <div className="equipment-detail-container">
       <Form className="mb-3 border border-dark p-5" onSubmit={handlerSubmit}>
         <Form.Group as={Row} className="mb-3">
           <Form.Label htmlFor="name" column sm="3">
@@ -144,7 +144,7 @@ const Create = () => {
             </Form.Select>
           </Col>
         </Form.Group>
-        <div style={{ margin: "auto", width: 0 }}>
+        <div className="center">
           <Button
             type="submit"
             className="btn btn-primary"

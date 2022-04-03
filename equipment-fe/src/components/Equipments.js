@@ -15,21 +15,14 @@ const Equipments = () => {
 
   if (results.length === 0) {
     return (
-      <div
-        style={{
-          marginLeft: "10%",
-          marginRight: "10%",
-          marginTop: "15px",
-          textAlign: "center",
-        }}
-      >
+      <div className="main-container">
         <h1>No Equipments found</h1>
       </div>
     );
   }
 
   return (
-    <div style={{ marginLeft: "10%", marginRight: "10%", marginTop: "15px" }}>
+    <div className="main-container">
       <Table striped bordered hover size="sm">
         <thead>
           <tr>

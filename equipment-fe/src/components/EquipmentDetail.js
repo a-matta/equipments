@@ -14,9 +14,8 @@ const EquipmentDetail = () => {
     });
   }, [equipmentNumber]);
 
-  //<table class="table table-sm">
   return (
-    <div style={{ marginLeft: "20%", marginRight: "20%", marginTop: "15px" }}>
+    <div className="equipment-detail-container">
       <Table bordered size="sm">
         <tbody>
           <tr>
